@@ -1,5 +1,8 @@
 package com.example.sleep_analy.Tools;
 
+import android.os.Environment;
+import android.util.Log;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -7,7 +10,8 @@ import java.io.IOException;
 
 public class ParseBak {
 
-    public void RewriteBakFile(String inputPath,String outPath,int removeCharCount)  {
+
+    public static void RewriteBakFile(String inputPath,String outPath,int removeCharCount)  {
 //        读文件
         File input_file = new File(inputPath);//"D:\\sleeping analysis\\test.txt"
         byte[] fileContent = new byte[(int) input_file.length()];
@@ -35,4 +39,23 @@ public class ParseBak {
             e.printStackTrace();
         }
     }
+
+    //TODO
+    public static final void testWriteMIUIFile(){
+        String path = "\\storage\\emulated\\0\\MIUI";
+//        String path = Environment.getExternalStoragePublicDirectory(Environment.).toString();
+
+        byte[] byteArray = {10, 20, 30, 40, 50}; // 创建一个字节数组
+
+        try {
+            File file = new File(path,"text.txt");
+            FileOutputStream fos = new FileOutputStream(file);
+            fos.write(byteArray);
+            fos.close();
+//            Log.e("write finished.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

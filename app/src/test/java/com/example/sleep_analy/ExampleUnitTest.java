@@ -4,6 +4,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+import android.os.Environment;
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -55,6 +58,39 @@ public class ExampleUnitTest {
             fos.close(); System.out.println("字节数组已写入文件");
         } catch (IOException e)
         {
+            e.printStackTrace();
+        }
+    }
+    @Test
+    public static final void testLogPath(){
+        File root = Environment.getExternalStorageDirectory();
+        File[] files = root.listFiles();
+        if (files != null) {
+            for (int i = 0; i < files.length; i++) {
+                if (files[i].isDirectory()) {
+                    Log.e("文件夹", files[i].toString());
+                }
+                if (files[i].isFile()) {
+                    Log.e("文件", files[i].toString());
+                }
+            }
+        }
+    }
+    @Test
+    //    在DOWNLOAD路径下写文件,可用
+    public static final void testWriteFile(){
+//        String path = "\\storage\\emulated\\0/test.txt";
+        String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString();
+
+        byte[] byteArray = {10, 20, 30, 40, 50}; // 创建一个字节数组
+
+        try {
+            File file = new File(path,"text.txt");
+            FileOutputStream fos = new FileOutputStream(file);
+            fos.write(byteArray);
+            fos.close();
+//            Log.e("write finished.");
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

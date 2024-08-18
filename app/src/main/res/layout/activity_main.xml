@@ -14,6 +14,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/refreshBakFileButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="刷新bak包"
+        />
+
+    <Button
+        android:id="@+id/openFolderButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打开文件夹"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
