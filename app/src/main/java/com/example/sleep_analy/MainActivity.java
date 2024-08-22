@@ -53,9 +53,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //        申请全部文件
-        Intent intent = new Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
-        startActivityForResult(intent, REQUEST_CODE_PERMISSION);
+
 
         PermissionX.init(this)
                 .permissions()
@@ -89,6 +87,19 @@ public class MainActivity extends AppCompatActivity {
 
                 ParseBak.testWriteMIUIFile();
 //                writeDataFile("test.txt","content");
+                Toast.makeText(MainActivity.this,"已刷新",Toast.LENGTH_SHORT).show();
+
+            }
+
+        });
+
+        Button button2=findViewById(R.id.getAllFileOp);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //        申请全部文件
+                Intent intent = new Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
+                startActivityForResult(intent, REQUEST_CODE_PERMISSION);
 
 
                 Toast.makeText(MainActivity.this,"按钮被点击了",Toast.LENGTH_SHORT).show();
