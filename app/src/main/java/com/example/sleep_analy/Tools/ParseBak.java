@@ -2,6 +2,7 @@ package com.example.sleep_analy.Tools;
 
 import android.os.Environment;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -40,11 +41,10 @@ public class ParseBak {
         }
     }
 
-    //TODO
     public static final void testWriteMIUIFile(){
-        String path = "\\storage\\emulated\\0\\MIUI";
-//        String path = Environment.getExternalStoragePublicDirectory(Environment.).toString();
 
+        //文件得用/分割，不用\\
+        String path = "/storage/emulated/0/MIUI/backup/AllBackup";
         byte[] byteArray = {10, 20, 30, 40, 50}; // 创建一个字节数组
 
         try {
@@ -52,7 +52,7 @@ public class ParseBak {
             FileOutputStream fos = new FileOutputStream(file);
             fos.write(byteArray);
             fos.close();
-//            Log.e("write finished.");
+
         } catch (IOException e) {
             e.printStackTrace();
         }
