@@ -57,5 +57,14 @@ public class ParseBak {
             e.printStackTrace();
         }
     }
+    public static final void testDeleteMIUIFile(){
+
+        //文件得用/分割，不用\\
+        String path  = "/storage/emulated/0/MIUI/backup/AllBackup";
+        String file_name  = "text.txt";
+        File file = new File(path,file_name);
+        boolean isDeleted = file.delete();
+
+    }
 
 }

@@ -84,13 +84,10 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 ParseBak.testWriteMIUIFile();
-//                writeDataFile("test.txt","content");
                 Toast.makeText(MainActivity.this,"已刷新",Toast.LENGTH_SHORT).show();
 
             }
-
         });
 
         Button button2=findViewById(R.id.getAllFileOp);
@@ -101,7 +98,17 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
                 startActivityForResult(intent, REQUEST_CODE_PERMISSION);
 
+                Toast.makeText(MainActivity.this,"按钮被点击了",Toast.LENGTH_SHORT).show();
 
+            }
+
+        });
+
+        Button button3=findViewById(R.id.deleteFile);
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ParseBak.testDeleteMIUIFile();
                 Toast.makeText(MainActivity.this,"按钮被点击了",Toast.LENGTH_SHORT).show();
 
             }
